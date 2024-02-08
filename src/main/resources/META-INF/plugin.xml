@@ -1,0 +1,42 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.thomas.CleanArchitectureBoilerplate</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>CleanArchitectureBoilerplate</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="thomassamoul@gmail.com.com" url="https://www.linkedin.com/in/thomassamoul">ThomasSamoul</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description>The Flutter Clean Code Generator is a JetBrains plugin designed to streamline the development process
+        for Flutter projects by automating the creation of clean code architecture. With this plugin, developers can
+        easily generate organized folder structures and essential classes for their entities, facilitating efficient
+        project setup and maintenance.>
+    </description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+    <actions>
+        <group id="boilerplate.menuAction" text="Generate Clean Architecture"
+               description="Generate new clean architecture feature">
+
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action class="com.thomas.cleanarchitectureboilerplate.MenuAction" id="CleanArch.Actions.MenuAction"
+                    text="New Feature"/>
+
+        </group>
+    </actions>
+</idea-plugin>
