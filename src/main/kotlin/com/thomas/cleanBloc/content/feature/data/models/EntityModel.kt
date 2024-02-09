@@ -1,7 +1,8 @@
 package com.thomas.cleanBloc.content.feature.data.models
 
-import com.thomas.cleanBloc.convertToCamelCase
-import com.thomas.cleanBloc.convertToSnakeCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToSnakeCase
+
 
 fun generateEntityModelContent(featureName:String):String{
     return """

@@ -1,6 +1,6 @@
 package com.thomas.cleanBloc.content.feature.presentation.pages
 
-import com.thomas.cleanBloc.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
 
 fun generateFeatureScreenContent(featureName: String): String {
     return """

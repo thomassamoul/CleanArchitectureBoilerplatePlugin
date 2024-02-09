@@ -1,7 +1,8 @@
 package com.thomas.cleanBloc.content.feature.data.repository
 
-import com.thomas.cleanBloc.convertToCamelCase
-import com.thomas.cleanBloc.convertToSnakeCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToSnakeCase
+
 
 fun generateDataRepository(featureName: String): String {
     return """

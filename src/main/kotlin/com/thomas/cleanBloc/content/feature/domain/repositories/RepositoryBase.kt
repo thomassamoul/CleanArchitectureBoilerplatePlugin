@@ -1,9 +1,9 @@
 package com.thomas.cleanBloc.content.feature.domain.repositories
 
-import com.thomas.cleanBloc.convertToCamelCase
-import com.thomas.cleanBloc.convertToSnakeCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToSnakeCase
 
-fun generateRepositoryBaseContent(featureName:String):String{
+fun generateRepositoryBaseContent(featureName: String): String {
     return """
         import 'package:dartz/dartz.dart';
 

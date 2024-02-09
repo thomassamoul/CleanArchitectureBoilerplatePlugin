@@ -1,9 +1,9 @@
 package com.thomas.cleanBloc.content.feature.domain.use_cases
 
-import com.thomas.cleanBloc.convertToCamelCase
-import com.thomas.cleanBloc.convertToSnakeCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToSnakeCase
 
-fun generateUpdateEntityUseCase(featureName:String):String{
+fun generateUpdateEntityUseCase(featureName: String): String {
     return """
         import 'package:dartz/dartz.dart';
 
@@ -12,7 +12,11 @@ fun generateUpdateEntityUseCase(featureName:String):String{
         import '../entities/${convertToSnakeCase(featureName)}.dart';
         import '../repositories/${convertToSnakeCase(featureName)}_repository_base.dart';
 
-        class Update${convertToCamelCase(featureName)}UseCase extends UseCase<${convertToCamelCase(featureName)}, ${convertToCamelCase(featureName)}> {
+        class Update${convertToCamelCase(featureName)}UseCase extends UseCase<${convertToCamelCase(featureName)}, ${
+        convertToCamelCase(
+            featureName
+        )
+    }> {
            final ${convertToCamelCase(featureName)}RepositoryBase repository;
            
            Update${convertToCamelCase(featureName)}UseCase(this.repository);

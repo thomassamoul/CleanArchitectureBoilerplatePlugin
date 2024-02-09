@@ -1,7 +1,7 @@
 package com.thomas.cleanBloc.content.feature.data.data_sources
 
-import com.thomas.cleanBloc.convertToCamelCase
-import com.thomas.cleanBloc.convertToSnakeCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToSnakeCase
 
 fun generateEntityRemoteDataSource(featureName:String):String{
     return """

@@ -1,8 +1,9 @@
 package com.thomas.cleanBloc.content.feature.domain.entities
 
-import com.thomas.cleanBloc.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
 
-fun generateEntityContent(featureName:String):String{
+
+fun generateEntityContent(featureName: String): String {
     return """
         abstract class ${convertToCamelCase(featureName)} {
            final int id;

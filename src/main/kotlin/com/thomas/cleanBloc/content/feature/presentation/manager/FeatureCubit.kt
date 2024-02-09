@@ -1,7 +1,7 @@
 package com.thomas.cleanBloc.content.feature.presentation.manager
 
-import com.thomas.cleanBloc.convertToCamelCase
-import com.thomas.cleanBloc.convertToSnakeCase
+import com.thomas.cleanBloc.utils.convertToCamelCase
+import com.thomas.cleanBloc.utils.convertToSnakeCase
 
 fun generateFeatureCubitContent(featureName: String): String {
     return """
@@ -63,7 +63,11 @@ fun generateFeatureCubitContent(featureName: String): String {
                 (r) => emit(${convertToCamelCase(featureName)}Success(result)));
           }
         
-          Future<void> update${convertToCamelCase(featureName)}(${convertToCamelCase(featureName)} ${convertToSnakeCase(featureName)}) async {
+          Future<void> update${convertToCamelCase(featureName)}(${convertToCamelCase(featureName)} ${
+        convertToSnakeCase(
+            featureName
+        )
+    }) async {
             emit(${convertToCamelCase(featureName)}Loading());
             final result = await update${convertToCamelCase(featureName)}UseCase.call(${convertToSnakeCase(featureName)});
         
