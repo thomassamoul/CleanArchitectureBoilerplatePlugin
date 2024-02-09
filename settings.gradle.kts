@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "CleanArchitectureBoilerplate"
+rootProject.name = "CleanBloc"
