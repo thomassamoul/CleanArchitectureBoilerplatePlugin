@@ -29,15 +29,15 @@ fun convertToSnakeCase(input: String): String {
 }
 
 
-fun createFileInDirectory(directory: VirtualFile, fileName: String, content: String) {
-
+fun createFileInDirectory(directory: VirtualFile, fileName: String, content: String, override: Boolean) {
     val file = directory.findOrCreateChildData(null, fileName)
-    if (!file.exists())
-        try {
+    try {
+        if (override || file.contentsToByteArray().toString(Charsets.UTF_8) != content) {
             file.setBinaryContent(content.toByteArray())
-        } catch (e: IOException) {
-            e.printStackTrace()
         }
+    } catch (e: IOException) {
+        e.printStackTrace()
+    }
 }
 
 

@@ -6,8 +6,8 @@ fun createEndPointsContent():String{
 
         class EndPoints {
           // base
-          static const String baseStagingUrl = 'http://167.86.119.94:4501/api';
-          static const String baseProductionUrl = 'http://167.86.119.94:4501/api';
+          static const String baseStagingUrl = 'http://localhost/api';
+          static const String baseProductionUrl = 'http://localhost/api';
           static const String baseUrl = kDebugMode? baseStagingUrl:baseProductionUrl;
         }
     """.trimIndent()

@@ -19,55 +19,55 @@ fun createFeatureFiles(feature: VirtualFile, featureName: String) {
         createFileInDirectory(
             data.findOrCreateSubdirectory("data_sources"),
             convertToSnakeCase(featureName) + "_remote_data_source.dart",
-            generateEntityRemoteDataSource(featureName)
+            generateEntityRemoteDataSource(featureName),false
         )
         createFileInDirectory(
             data.findOrCreateSubdirectory("models"),
             convertToSnakeCase(featureName) + "_model.dart",
-            generateEntityModelContent(featureName)
+            generateEntityModelContent(featureName),false
         )
         createFileInDirectory(
             data.findOrCreateSubdirectory("repositories"),
             convertToSnakeCase(featureName) + "_repository_impl.dart",
-            generateDataRepository(featureName)
+            generateDataRepository(featureName),false
         )
     }
     feature.findOrCreateSubdirectory("domain").let { domain ->
         createFileInDirectory(
             domain.findOrCreateSubdirectory("entities"),
             convertToSnakeCase(featureName) + ".dart",
-            generateEntityContent(featureName)
+            generateEntityContent(featureName),false
         )
         createFileInDirectory(
             domain.findOrCreateSubdirectory("repositories"),
             convertToSnakeCase(featureName) + "_repository_base.dart",
-            generateRepositoryBaseContent(featureName)
+            generateRepositoryBaseContent(featureName),false
         )
         domain.findOrCreateSubdirectory("use_cases").let {
             createFileInDirectory(
                 it,
                 "create_" + convertToSnakeCase(featureName) + "_use_case.dart",
-                generateCreateEntityUseCase(featureName)
+                generateCreateEntityUseCase(featureName),false
             )
             createFileInDirectory(
                 it,
                 "delete_" + convertToSnakeCase(featureName) + "_use_case.dart",
-                generateDeleteEntityUseCase(featureName)
+                generateDeleteEntityUseCase(featureName),false
             )
             createFileInDirectory(
                 it,
                 "get_all_" + convertToSnakeCase(featureName) + "_use_case.dart",
-                generateGetAllEntityUseCase(featureName)
+                generateGetAllEntityUseCase(featureName),false
             )
             createFileInDirectory(
                 it,
                 "get_by_id_" + convertToSnakeCase(featureName) + "_use_case.dart",
-                generateGetAllByIdEntityUseCase(featureName)
+                generateGetAllByIdEntityUseCase(featureName),false
             )
             createFileInDirectory(
                 it,
                 "update_" + convertToSnakeCase(featureName) + "_use_case.dart",
-                generateUpdateEntityUseCase(featureName)
+                generateUpdateEntityUseCase(featureName),false
             )
         }
     }
@@ -76,18 +76,18 @@ fun createFeatureFiles(feature: VirtualFile, featureName: String) {
             createFileInDirectory(
                 it,
                 convertToSnakeCase(featureName) + "_cubit.dart",
-                generateFeatureCubitContent(featureName)
+                generateFeatureCubitContent(featureName),false
             )
             createFileInDirectory(
                 it,
                 convertToSnakeCase(featureName) + "_state.dart",
-                generateFeatureStateContent(featureName)
+                generateFeatureStateContent(featureName),false
             )
         }
         createFileInDirectory(
             presentation.findOrCreateSubdirectory("pages"),
             convertToSnakeCase(featureName) + "_screen.dart",
-            generateFeatureScreenContent(featureName)
+            generateFeatureScreenContent(featureName),false
         )
         presentation.findOrCreateSubdirectory("widgets")
     }
