@@ -21,6 +21,26 @@ CleanBloc is a JetBrains plugin designed to automate the generation of clean cod
 1. Once installed, navigate to `Menu` > `CleanBloc` > `New Feature` to access the plugin.
 2. Follow the prompts to generate clean architecture folders and classes for your Flutter project.
 
+## Plugin Screenshot
+
+![CleanBloc Plugin Screenshot](screenshoots/1.png)
+![CleanBloc Plugin Screenshot](screenshoots/2.png)
+![CleanBloc Plugin Screenshot](screenshoots/3.png)
+![CleanBloc Plugin Screenshot](screenshoots/4.png)
+
+## Architecture Proposal
+
+![Clean Architecture Proposal](screenshoots/architecture-proposal.png)
+
+
+## Dependencies
+
+The plugin automatically installs the following dependencies to your Flutter project:
+
+- [Shared Preferences](https://pub.dev/packages/shared_preferences): For local data storage.
+- [Dio](https://pub.dev/packages/dio): For making network requests.
+- [Bloc](https://pub.dev/packages/flutter_bloc): For state management.
+
 ## Feedback and Contributions
 
 - Feedback, bug reports, and feature requests are welcome! Please submit them via [GitHub Issues](https://github.com/thomassamoul/CleanArchitectureBoilerplatePlugin/issues).

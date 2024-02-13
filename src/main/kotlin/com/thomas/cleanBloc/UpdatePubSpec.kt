@@ -46,15 +46,19 @@ fun updatePubSpec(projectPath: String) {
 }
 
 fun executeTerminalCommand(command: String, projectPath: String) {
-    val commandLine = "cd $projectPath && $command"
-    val process = Runtime.getRuntime().exec(arrayOf("bash", "-c", commandLine))
-    process.waitFor()
-    val output = process.inputStream.bufferedReader().readText()
-    val error = process.errorStream.bufferedReader().readText()
-    if (output.isNotEmpty()) {
-        println("Output: $output")
-    }
-    if (error.isNotEmpty()) {
-        println("Error: $error")
+    try {
+        val commandLine = "cd $projectPath && $command"
+        val process = Runtime.getRuntime().exec(arrayOf("bash", "-c", commandLine))
+        process.waitFor()
+        val output = process.inputStream.bufferedReader().readText()
+        val error = process.errorStream.bufferedReader().readText()
+        if (output.isNotEmpty()) {
+            println("Output: $output")
+        }
+        if (error.isNotEmpty()) {
+            println("Error: $error")
+        }
+    } catch (e: Exception) {
+        println(e.message)
     }
 }

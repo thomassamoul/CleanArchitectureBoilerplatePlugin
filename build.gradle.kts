@@ -1,11 +1,12 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.21"
+    id("org.jetbrains.kotlin.jvm") version "1.9.22"
     id("org.jetbrains.intellij") version "1.17.1"
+    id("org.jetbrains.changelog") version "2.2.0"
 }
 
 group = "com.thomas"
-version = "1.0.0"
+version = "1.0.4"
 
 repositories {
     mavenCentral()
@@ -14,10 +15,10 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2023.1.5")
+    version.set("2023.3.3")
     type.set("IC") // Target IDE Platform
-
-    plugins.set(listOf(/* Plugin Dependencies */))
+    updateSinceUntilBuild = false
+    plugins.set(listOf("yaml", "java", "Kotlin"))
 }
 
 tasks {
@@ -31,8 +32,17 @@ tasks {
     }
 
     patchPluginXml {
+        version.set("1.0.4")
         sinceBuild.set("231")
-        untilBuild.set("241.*")
+        untilBuild.set("")
+        changeNotes.set(File("${project.projectDir}/CHANGELOG.md").readText())
+    }
+
+    changelog {
+        path = "${project.projectDir}/CHANGELOG.md"
+        keepUnreleasedSection = true
+        unreleasedTerm = "[Unreleased]"
+        groups.set(listOf("Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"))
     }
 
     signPlugin {

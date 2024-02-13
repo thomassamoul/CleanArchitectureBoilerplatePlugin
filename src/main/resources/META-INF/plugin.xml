@@ -13,10 +13,11 @@
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description>The Flutter Clean Code Generator is a JetBrains plugin designed to streamline the development process
-        for Flutter projects by automating the creation of clean code architecture. With this plugin, developers can
-        easily generate organized folder structures and essential classes for their entities, facilitating efficient
-        project setup and maintenance.
+    <description>The Flutter Clean Code Generator is a plugin for IntelliJ-based IDEs, designed to streamline the
+        development process for Flutter projects by automating the creation of clean code architecture. With this
+        plugin, developers can easily generate organized folder structures and essential classes for their entities,
+        facilitating efficient project setup and maintenance.
+
     </description>
 
     <!-- Product and plugin compatibility requirements.

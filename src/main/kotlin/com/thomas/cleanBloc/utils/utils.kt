@@ -3,6 +3,8 @@ package com.thomas.cleanBloc.utils
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
+import com.vladsch.flexmark.html.HtmlRenderer
+import com.vladsch.flexmark.parser.Parser
 import java.io.IOException
 
 fun VirtualFile.findOrCreateSubdirectory(name: String): VirtualFile {
@@ -43,4 +45,12 @@ fun createFileInDirectory(directory: VirtualFile, fileName: String, content: Str
 
 fun showErrorDialog(project: Project, message: String) {
     Messages.showErrorDialog(project, message, "Error")
+}
+
+
+fun String.convertMarkdownToHtml(): String {
+    val parser = Parser.builder().build()
+    val renderer = HtmlRenderer.builder().build()
+    val document = parser.parse(this)
+    return renderer.render(document)
 }
