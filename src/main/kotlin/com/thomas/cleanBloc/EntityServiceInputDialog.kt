@@ -5,22 +5,19 @@ import com.intellij.openapi.ui.ValidationInfo
 import com.intellij.util.ui.JBUI
 import com.intellij.util.ui.JBUI.insets
 import java.awt.Dimension
-import java.awt.Font
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
-import java.awt.font.TextAttribute
-import java.io.InputStream
 import javax.swing.*
 
 class EntityServiceInputDialog() : DialogWrapper(true) {
     private val panel = JPanel(GridBagLayout())
     val featureName = JTextField()
+    val addFeatureOnlyCheckbox = JCheckBox("Add Feature Only")
 
     init {
         title = "Enter Feature Name"
         init()
     }
-
 
     override fun createCenterPanel(): JComponent {
         val gbc = GridBagConstraints()
@@ -31,16 +28,7 @@ class EntityServiceInputDialog() : DialogWrapper(true) {
         gbc.fill = GridBagConstraints.NONE
         gbc.insets = insets(0, 0, 5, 5)
 
-        val fontSettings = mapOf(TextAttribute.WEIGHT to TextAttribute.WEIGHT_BOLD)
-
-
-        val fontStream: InputStream? = javaClass.getResourceAsStream("/font/Montserrat-VariableFont_wght.ttf")
-        val baseFont = Font.createFont(Font.PLAIN, fontStream)
-        val derivedFont = baseFont.deriveFont(fontSettings)
-        val font = derivedFont.deriveFont(18f)
-
         val label = JLabel("Feature Name:")
-        label.font = font // Set the loaded font
         panel.add(label, gbc)
 
         gbc.gridx = 1
@@ -50,8 +38,13 @@ class EntityServiceInputDialog() : DialogWrapper(true) {
 
         featureName.preferredSize = Dimension(300, featureName.preferredSize.height)
         featureName.minimumSize = Dimension(200, featureName.preferredSize.height)
-        featureName.font = font
         panel.add(featureName, gbc)
+
+        gbc.gridx = 0
+        gbc.gridy = 1
+        gbc.gridwidth = 2
+        addFeatureOnlyCheckbox.isSelected = false
+        panel.add(addFeatureOnlyCheckbox, gbc)
 
         return panel
     }

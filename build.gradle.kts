@@ -1,12 +1,12 @@
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.22"
-    id("org.jetbrains.intellij") version "1.17.1"
+    id("org.jetbrains.intellij") version "1.17.2"
     id("org.jetbrains.changelog") version "2.2.0"
 }
 
 group = "com.thomas"
-version = "1.0.4"
+version = "1.0.5"
 
 repositories {
     mavenCentral()
@@ -15,9 +15,9 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2023.3.3")
+    version.set("IU-233.13135-EAP-CANDIDATE-SNAPSHOT")
     type.set("IC") // Target IDE Platform
-    updateSinceUntilBuild = false
+    updateSinceUntilBuild.set(true)
     plugins.set(listOf("yaml", "java", "Kotlin"))
 }
 
@@ -32,9 +32,8 @@ tasks {
     }
 
     patchPluginXml {
-        version.set("1.0.4")
-        sinceBuild.set("231")
-        untilBuild.set("")
+        version.set("1.0.5")
+        sinceBuild.set("231.*")
         changeNotes.set(File("${project.projectDir}/CHANGELOG.md").readText())
     }
 

@@ -13,7 +13,7 @@ class MenuAction : AnAction() {
         if (dialog.showAndGet()) {
             val project = e.project
             project?.basePath?.let { updatePubSpec(it) }
-            project?.let { createFolders(it, dialog.featureName.text) }
+            project?.let { createFolders(it, dialog.featureName.text,dialog.addFeatureOnlyCheckbox.isSelected) }
 
         }
     }
